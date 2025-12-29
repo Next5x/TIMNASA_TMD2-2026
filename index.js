@@ -307,27 +307,8 @@ function mybotpic() {
                                     console.log(e)
                                }
                             }
-        // Sehemu ya Antilien (Marekebisho)
-if (action === 'ondosha') {
-    if (!verifZokouAdmin) { 
-        return repondre("Siwezi kumuondoa mtu kwa sababu mimi si Admin hapa."); 
-    }
-    txt += `Lien detected, @${auteurMessage.split("@")[0]} ametolewa kwenye kundi.`;
-    await zk.sendMessage(origineMessage, { sticker: fs.readFileSync("sticker.ondosha") });
-    await new Promise(resolve => setTimeout(resolve, 1000)); // Subiri kidogo
-    
-    try {
-        await zk.groupParticipantsUpdate(origineMessage, [auteurMessage], "remove");
-        await zk.sendMessage(origineMessage, { text: txt, mentions: [auteurMessage] });
-        await zk.sendMessage(origineMessage, { delete: key });
-    } catch (e) {
-        console.log("Error kwenye remove antilien: " + e);
-    }
-    await fs.unlink("stiker.ondosha");
-            }
-
-          }
-    }           if (ms.key && ms.key.remoteJid === "status@broadcast" && conf.AUTO_READ_STATUS === "yes") {
+            
+           if (ms.key && ms.key.remoteJid === "status@broadcast" && conf.AUTO_READ_STATUS === "yes") {
                 await zk.readMessages([ms.key]);
             }
             if (ms.key && ms.key.remoteJid === 'status@broadcast' && conf.AUTO_DOWNLOAD_STATUS === "yes") {
