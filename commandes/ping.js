@@ -22,7 +22,7 @@ function formatDuration(sec) {
 
 zokou(
   {
-    nomCom: "ping",
+    nomCom: "test",
     desc: "speed ping",
     categorie: "General",
     reaction: "⚡",
@@ -43,17 +43,17 @@ zokou(
 
     const uptime = formatDuration(process.uptime());
 
-    const pingMsg = `*Ƶ𝓞ｋØ𝓊-𝓜𝓓 ᴘɪɴɢ* ⚡
-
+    const pingMsg = `*ᯤ ᴛɪᴍɴᴀsᴀ-ᴍᴅ ᴘɪɴɢ* ⚡
+│•───────────━┈⊷
 📡 *speed ping:* ${ping} ms
 ⏱️ *time:* ${time}
 📅 *date:* ${date}
 ⏳ *Uptime:* ${uptime}
 🟢 *situation : * I am healthy. (Alive)
-🌍 *nation country:* ${country}
+🌍 *nation country:* Tanzania 🇹🇿 
 
 📢  https://whatsapp.com/channel/0029Vb9kKuVCMY0F5rmX2j1u
-
+│•───────────━┈⊷
 > *Powered by ᯤ ᴛɪᴍɴᴀsᴀ-ᴍᴅ *`;
 
     try {
