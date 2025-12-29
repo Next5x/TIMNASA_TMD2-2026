@@ -22,8 +22,8 @@ function formatDuration(sec) {
 
 zokou(
   {
-    nomCom: "pingx",
-    desc: "Angalia kasi ya bot",
+    nomCom: "ping",
+    desc: "speed ping",
     categorie: "General",
     reaction: "⚡",
   },
@@ -34,8 +34,8 @@ zokou(
     const start = Date.now();
     
     // Muda wa Afrika/Nairobi au Dar es Salaam
-    const time = moment().tz("Africa/Nairobi").format("HH:mm:ss");
-    const date = moment().tz("Africa/Nairobi").format("DD/MM/YYYY");
+    const time = moment().tz("Africa/Dodoma").format("HH:mm:ss");
+    const date = moment().tz("Africa/Dodoma").format("DD/MM/YYYY");
     
     // Malizia kuhesabu (Real Latency)
     const end = Date.now();
@@ -45,26 +45,26 @@ zokou(
 
     const pingMsg = `*Ƶ𝓞ｋØ𝓊-𝓜𝓓 ᴘɪɴɢ* ⚡
 
-📡 *Kasi:* ${ping} ms
-⏱️ *Muda:* ${time}
-📅 *Tarehe:* ${date}
+📡 *speed ping:* ${ping} ms
+⏱️ *time:* ${time}
+📅 *date:* ${date}
 ⏳ *Uptime:* ${uptime}
-🟢 *Hali:* Ni mzima (Alive)
-🌍 *Nchi:* Tanzania
+🟢 *situation : * I am healthy. (Alive)
+🌍 *nation country:* ${country}
 
-📢 *Channel:* https://whatsapp.com/channel/0029VaaqaSp79PwS6p8dn71w
+📢  https://whatsapp.com/channel/0029Vb9kKuVCMY0F5rmX2j1u
 
-> *Powered by Djalega++*`;
+> *Powered by ᯤ ᴛɪᴍɴᴀsᴀ-ᴍᴅ *`;
 
     try {
       // Picha ya random kutoka kwenye list yako
-      const njabulox = [
+      const math = [
         "https://files.catbox.moe/mhhku3.jpeg",
         "https://files.catbox.moe/t5v7hj.jpg",
         "https://files.catbox.moe/x0zjpf.jpg",
         "https://files.catbox.moe/bnb3vx.jpg"
       ];
-      const randomImg = njabulox[Math.floor(Math.random() * njabulox.length)];
+      const randomImg = math[Math.floor(Math.random() * math.length)];
 
       await zk.sendMessage(dest, { 
         image: { url: randomImg }, 
