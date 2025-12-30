@@ -12,11 +12,7 @@ zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions
     let { ms, repondre ,prefixe,nomAuteurMessage,mybotpic} = commandeOptions;
     let { cm } = require(__dirname + "/../framework/zokou");
     var coms = {};
-    var mode = "public";
-    
-    if ((s.MODE).toLocaleLowerCase() != "yes") {
-        mode = "private";
-    }
+    var mode = (s.MODE).toLocaleLowerCase() != "yes" ? "Private" : "Public";
 
     cm.map(async (com, index) => {
         if (!coms[com.categorie])
@@ -28,96 +24,69 @@ zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions
     const temps = moment().format('HH:mm:ss');
     const date = moment().format('DD/MM/YYYY');
 
-    let infoMsg =  `
-╭──────────────────✰
-┊✰───*𝚻𝚰𝚳𝚴𝚫𝐒𝚫 𝚻𝚳𝐃2*────✰
-┊✍︎┊ *𝙐𝙎𝙀𝙍* : ${s.OWNER_NAME}
-┊✍︎┊ *𝙈𝙊𝘿𝙀* : ${mode}
-┊✰───────────────✰
-┊✍︎┊ *𝙏𝙄𝙈𝙀* : ${temps}  
-┊✍︎┊ *𝙍𝘼𝙈* : ${format(os.totalmem() - os.freemem())}/${format(os.totalmem())}
-┊✰───────────────✰
-╰──────────────────✰ \n\n`;
- 
-    let menuMsg=`  
-  *ᴛɪᴍɴᴀsᴀ ᴛᴍᴅ2 𝘾𝙊𝙈𝙈𝘼𝙉𝘿𝙎*
+    // Muonekano mpya wa Menu (Clean & Modern)
+    let menuMsg = `
+╔═══════『 **𝚻𝚰𝚳𝚴𝚫𝐒𝚫 𝚻𝚳𝐃2** 』═══════╗
+┃
+┃  👤 **USER**: ${s.OWNER_NAME}
+┃  🕒 **TIME**: ${temps}
+┃  📅 **DATE**: ${date}
+┃  ⚙️ **MODE**: ${mode}
+┃  🔋 **RAM**: ${format(os.totalmem() - os.freemem())}/${format(os.totalmem())}
+┃
+╚═════════════════════════════╝
+
 ${readmore}`;
 
     for (const cat in coms) {
-        menuMsg += `*╭────✰* *${cat}* *☯*`;
+        menuMsg += `\n✨ *${cat.toUpperCase()}* ✨\n`;
         for (const cmd of coms[cat]) {
-            menuMsg += `  
-*┊✞︎* ${cmd}`;
+            menuMsg += `  ◦ ${cmd}\n`;
         }
-        menuMsg += `
-*╰══════ᴛɪᴍɴᴀsᴀ ᴛᴍᴅ2═══════✰* \n`
     }
 
-    menuMsg += `
-         ◇           ◇
-*————ᴛɪᴍɴᴀsᴀ ᴛᴍᴅ2—————*
+    menuMsg += `\n\n*POWERED BY TIMNASA TMD2*`;
 
-  *𝚻𝚰𝚳𝚴𝚫𝐒𝚫 𝚻𝚳𝐃2* *╰═════════════✰*
-`;
+    var lien = mybotpic();
 
-   var lien = mybotpic();
-
-   // Kutuma Muziki kwanza (Background Music)
-   await zk.sendMessage(dest, { 
-       audio: { url: "https://files.catbox.moe/e4c48n.mp3" }, 
-       mimetype: 'audio/mp4', 
-       ptt: true 
-   }, { quoted: ms });
-
-   // Kutuma Menu ikiwa na View Channel
-   if (lien.match(/\.(mp4|gif)$/i)) {
-    try {
-        zk.sendMessage(dest, { 
-            video: { url: lien }, 
-            caption: infoMsg + menuMsg, 
-            footer: "Je suis *ᴛɪᴍɴᴀsᴀ ᴛᴍᴅ2*, développé par timnasa++",
-            gifPlayback: true,
-            contextInfo: {
-                mentionedJid: [dest],
-                externalAdReply: {
-                    title: "TIMNASA TMD2 CHANNEL",
-                    body: "Join our official channel",
-                    thumbnailUrl: lien,
-                    sourceUrl: "https://whatsapp.com/channel/0029Vb9kKuVCMY0F5rmX2j1u",
-                    mediaType: 1,
-                    renderLargerThumbnail: true
-                },
-                forwardingScore: 999,
-                isForwarded: true,
-                forwardedNewsletterMessageInfo: {
-                    newsletterJid: "120363413554978773@newsletter",
-                    newsletterName: "TIMNASA TMD2",
-                    serverMessageId: 144
-                }
-            }
-        }, { quoted: ms });
-    } catch (e) {
-        repondre("🥵🥵 Menu erreur " + e);
-    }
-} else {
-    try {
-        zk.sendMessage(dest, { 
-            image: { url: lien }, 
-            caption: infoMsg + menuMsg, 
-            footer: "*popkid*",
+    // Kutuma ujumbe wenye picha/video na View Channel tag
+    const sendMenu = async () => {
+        let messageOptions = {
+            caption: menuMsg,
+            footer: "Bonyeza hapa kujiunga na channel",
             contextInfo: {
                 forwardingScore: 999,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
                     newsletterJid: "120363413554978773@newsletter",
-                    newsletterName: "TIMNASA TMD2 SUPPORT",
-                    serverMessageId: 144
+                    newsletterName: "TIMNASA TMD2 UPDATES",
+                    serverMessageId: 1
                 }
             }
-        }, { quoted: ms });
-    } catch (e) {
-        repondre(infoMsg + menuMsg);
-    }
-}
+        };
 
+        if (lien.match(/\.(mp4|gif)$/i)) {
+            messageOptions.video = { url: lien };
+            messageOptions.gifPlayback = true;
+        } else {
+            messageOptions.image = { url: lien };
+        }
+
+        await zk.sendMessage(dest, messageOptions, { quoted: ms });
+    };
+
+    try {
+        await sendMenu();
+        
+        // Kutuma Muziki mwishoni
+        await zk.sendMessage(dest, { 
+            audio: { url: "https://files.catbox.moe/lqx6sp.mp3" }, 
+            mimetype: 'audio/mp4', 
+            ptt: false // Ikitumwa kama audio file ya kawaida
+        }, { quoted: ms });
+
+    } catch (e) {
+        console.log("Menu Error: " + e);
+        repondre("Hitilafu imetokea: " + e);
+    }
 });
