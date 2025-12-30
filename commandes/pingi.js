@@ -18,7 +18,7 @@ function runtime(seconds) {
 }
 
 zokou({
-  nomCom: "speed",
+  nomCom: "ping",
   desc: "Check bot speed, RAM usage, and system status.",
   categorie: "General",
   reaction: "⚡"
@@ -42,7 +42,7 @@ zokou({
     const freeRam = (os.freemem() / 1024 / 1024 / 1024).toFixed(2);
     const usedRam = (totalRam - freeRam).toFixed(2);
 
-    const statusMsg = `*🚀 ZOKOU-MD SYSTEM STATUS 🚀*
+    const statusMsg = `*🚀 ᴛɪᴍɴᴀsᴀ-ᴍᴅ SYSTEM STATUS 🚀*
 
 *⚡ Latency:* ${ping} ms
 *⏱️ Uptime:* ${uptime}
@@ -51,7 +51,7 @@ zokou({
 
 *🔗 CHANNEL:* ${channelLink}
 
-> Powered by Zokou Framework`;
+> Powered by  ᴛɪᴍɴᴀsᴀ-ᴍᴅ`;
 
     // 1. Send Image with Status Caption
     await zk.sendMessage(dest, {
