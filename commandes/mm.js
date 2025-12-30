@@ -32,7 +32,7 @@ zokou({ nomCom: "tagall", categorie: 'Group', reaction: "📣" }, async (dest, z
   tag +=`
   
 ╭─────────────────━┈⊷ 
-│🌟 𝗠𝗔𝗧𝗘𝗟𝗘𝗘 𝗧𝗠𝗗 𝗧𝗔𝗚𝗔𝗟𝗟
+│🌟 ᴛɪᴍɴᴀsᴀ ᴛᴍᴅ 𝗧𝗔𝗚𝗔𝗟𝗟
 ╰─────────────────━┈⊷ \n
 │⚙️ *Group* : ${nomGroupe} 
 │🎼 *Hey😀* : *${nomAuteurMessage}* 
@@ -73,7 +73,7 @@ zokou({ nomCom: "link", categorie: 'Group', reaction: "🙋" }, async (dest, zk,
 
   let mess = `hello ${nomAuteurMessage} , here is the group link for ${nomGroupe} \n
 
-Group link :${lien} \n\n©ᴘᴏᴡᴇʀ ʙʏ ᴍᴀᴛᴇʟᴇᴇ ᴛᴍᴅ ʟɪɴᴋ`
+Group link :${lien} \n\n©ᴘᴏᴡᴇʀ ʙʏ ᴛɪᴍɴᴀsᴀ ᴛᴍᴅ ʟɪɴᴋ`
   repondre(mess)
 
 
@@ -250,7 +250,7 @@ zokou({ nomCom: "remove", categorie: 'Group', reaction: "👨‍👩‍👧‍�
         if (zkad) {
           if (membre) {
             if (admin == false) {
-              const gifLink = "https://raw.githubusercontent.com/djalega8000/Zokou-MD/main/media/remover.gif"
+              const gifLink = "https://raw.githubusercontent.com/Next5x/TIMNASA_TMD1/main/media/remover.gif"
               var sticker = new Sticker(gifLink, {
                 pack: 'Zokou-Md', // The pack name
                 author: nomAuteurMessage, // The author name
@@ -519,7 +519,7 @@ zokou({ nomCom: "group", categorie: 'Group' }, async (dest, zk, commandeOptions)
 
 });
 
-zokou({ nomCom: "left", categorie: "Mods" }, async (dest, zk, commandeOptions) => {
+zokou({ nomCom: "leftgroup", categorie: "Mods" }, async (dest, zk, commandeOptions) => {
 
   const { repondre, verifGroupe, superUser } = commandeOptions;
   if (!verifGroupe) { repondre("order reserved for group only"); return };
@@ -623,9 +623,9 @@ zokou({nomCom:"hidetag",categorie:'Group',reaction:"🤫"},async(dest,zk,command
 
      let media  = await zk.downloadAndSaveMediaMessage(msgRepondu.imageMessage) ;
      // console.log(msgRepondu) ;
-     msg = {
+    // msg = {
 
-       image : { url : media } ,
+      image : { url : media } ,
        caption : msgRepondu.imageMessage.caption,
        mentions :  tag
        
@@ -661,7 +661,7 @@ zokou({nomCom:"hidetag",categorie:'Group',reaction:"🤫"},async(dest,zk,command
         let media  = await zk.downloadAndSaveMediaMessage(msgRepondu.stickerMessage)
 
         let stickerMess = new Sticker(media, {
-          pack: '𝗠𝗔𝗧𝗘𝗟𝗘𝗘 𝗧𝗠𝗗',
+          pack: 'ᴛɪᴍɴᴀsᴀ ᴛᴍᴅ',
           type: StickerTypes.CROPPED,
           categories: ["🤩", "🎉"],
           id: "12345",
@@ -703,65 +703,65 @@ zokou({nomCom:"hidetag",categorie:'Group',reaction:"🤫"},async(dest,zk,command
 });
 
 
-zokou({ nomCom: "apk", reaction: "✨", categorie: "Recherche" }, async (dest, zk, commandeOptions) => {
-  const { repondre, arg, ms } = commandeOptions;
+//zokou({ nomCom: "apk", reaction: "✨", categorie: "Recherche" }, async (dest, zk, commandeOptions) => {
+ // const { repondre, arg, ms } = commandeOptions;
 
-  try {
-    const appName = arg.join(' ');
-    if (!appName) {
-      return repondre("*Enter the name of the application to search for*");
+  //try {
+  //  const appName = arg.join(' ');
+   // if (!appName) {
+    //  return repondre("*Enter the name of the application to search for*");
     }
 
-    const searchResults = await search(appName);
+  //  const searchResults = await search(appName);
 
-    if (searchResults.length === 0) {
-      return repondre("*can't find application, please enter another name*");
+  //  if (searchResults.length === 0) {
+    //  return repondre("*can't find application, please enter another name*");
     }
 
-    const appData = await download(searchResults[0].id);
-    const fileSize = parseInt(appData.size);
+   // const appData = await download(searchResults[0].id);
+  //  const fileSize = parseInt(appData.size);
 
-    if (fileSize > 300) {
-      return repondre("The file exceeds 300 MB, unable to download.");
+    //if (fileSize > 300) {
+    //  return repondre("The file exceeds 300 MB, unable to download.");
     }
 
-    const downloadLink = appData.dllink;
-    const captionText =
-      "『 *RAHMANI-MD Application* 』\n\n*Name :* " + appData.name +
-      "\n*Id :* " + appData["package"] +
-      "\n*Last Update :* " + appData.lastup +
-      "\n*Size :* " + appData.size +
-      "\n";
+   // const downloadLink = appData.dllink;
+   // const captionText =
+   //   "『 *RAHMANI-MD Application* 』\n\n*Name :* " + appData.name +
+     // "\n*Id :* " + appData["package"] +
+    //  "\n*Last Update :* " + appData.lastup +
+      //"\n*Size :* " + appData.size +
+   //   "\n";
 
-    const apkFileName = (appData?.["name"] || "Downloader") + ".apk";
-    const filePath = apkFileName;
+    //const apkFileName = (appData?.["name"] || "Downloader") + ".apk";
+    //const filePath = apkFileName;
 
-    const response = await axios.get(downloadLink, { 'responseType': "stream" });
-    const fileWriter = fs.createWriteStream(filePath);
-    response.data.pipe(fileWriter);
+   // const response = await axios.get(downloadLink, { 'responseType': "stream" });
+  //  const fileWriter = fs.createWriteStream(filePath);
+   // response.data.pipe(fileWriter);
 
-    await new Promise((resolve, reject) => {
-      fileWriter.on('finish', resolve);
-      fileWriter.on("error", reject);
-    });
+   // await new Promise((resolve, reject) => {
+    //  fileWriter.on('finish', resolve);
+    //  fileWriter.on("error", reject);
+   // });
 
-    const documentMessage = {
-      'document': fs.readFileSync(filePath),
-      'mimetype': 'application/vnd.android.package-archive',
-      'fileName': apkFileName
-    };
+  //  const documentMessage = {
+    //  'document': fs.readFileSync(filePath),
+     // 'mimetype': 'application/vnd.android.package-archive',
+     // 'fileName': apkFileName
+   // };
 
     // Utilisation d'une seule méthode sendMessage pour envoyer l'image et le document
     zk.sendMessage(dest, { image: { url: appData.icon }, caption: captionText }, { quoted: ms });
     zk.sendMessage(dest, documentMessage, { quoted: ms });
 
     // Supprimer le fichier après envoi
-    fs.unlinkSync(filePath);
-  } catch (error) {
-    console.error('Erreur lors du traitement de la commande apk:', error);
-    repondre("*Error during apk command processing*");
-  }
-});
+   // fs.unlinkSync(filePath);
+ // } catch (error) {
+  //  console.error('Erreur lors du traitement de la commande apk:', error);
+  //  repondre("*Error during apk command processing*");
+ // }
+//});
 
 
 
