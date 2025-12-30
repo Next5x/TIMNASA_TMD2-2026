@@ -59,10 +59,10 @@ zokou(
     try {
       // Picha ya random kutoka kwenye list yako
       const math = [
-        "https://files.catbox.moe/mhhku3.jpeg",
-        "https://files.catbox.moe/t5v7hj.jpg",
-        "https://files.catbox.moe/x0zjpf.jpg",
-        "https://files.catbox.moe/bnb3vx.jpg"
+        "https://files.catbox.moe/tq4mph.jpg",
+        "https://files.catbox.moe/936pyq.jpg",
+        "https://files.catbox.moe/zm113g.jpg",
+        "https://files.catbox.moe/qf6u89.jpg"
       ];
       const randomImg = math[Math.floor(Math.random() * math.length)];
 
