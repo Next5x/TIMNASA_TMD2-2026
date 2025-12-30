@@ -1,4 +1,3 @@
-
 const axios = require("axios");
 const {zokou} = require("../framework/zokou");
 const traduire = require("../framework/traduction");
@@ -12,7 +11,7 @@ zokou({
 async (origineMessage, zk, commandeOptions) => {
   const { repondre, ms } = commandeOptions;
 
-  const jsonURL = "https://api.jikan.moe/v4/random/anime"; // Remplacez par votre URL JSON
+  const jsonURL = "https://api.jikan.moe/v4/random/anime"; 
 
   try {
     const response = await axios.get(jsonURL);
@@ -20,15 +19,12 @@ async (origineMessage, zk, commandeOptions) => {
 
     const title = data.title;
     const synopsis = data.synopsis;
-    const imageUrl = data.images.jpg.image_url; // Utilisez l'URL de l'image JPG
+    const imageUrl = data.images.jpg.image_url; 
     const episodes = data.episodes;
     const status = data.status;
 
-    //const texttraduit = await traduire(synopsis,{ to: 'fr' })
-
     const message = `📺 Titre: ${title}\n🎬 Épisodes: ${episodes}\n📡 Statut: ${status}\n📝 Synopsis: ${synopsis}\n🔗 URL: ${data.url}`;
     
-    // Envoyer l'image et les informations
     zk.sendMessage(origineMessage, { image: { url: imageUrl }, caption: message }, { quoted: ms });
   } catch (error) {
     console.error('Error retrieving data from JSON :', error);
@@ -58,7 +54,6 @@ zokou({
       msg += `➣ Link : ${result.link}\n\n────────────────────────\n\n`;
     }
     
-   // const trdmsg = await traduire(msg,{to : 'fr'})
     repondre(msg);
   } catch (error) {
     repondre("An error occurred during Google search.");
@@ -77,7 +72,6 @@ zokou({
   }
 
   try {
-    
     const response = await axios.get(`http://www.omdbapi.com/?apikey=742b2d09&t=${arg}&plot=full`);
     const imdbData = response.data;
 
@@ -103,13 +97,9 @@ zokou({
     imdbInfo += "❎imdbVotes : " + imdbData.imdbVotes + "";
 
     zk.sendMessage(dest, {
-      image: {
-        url: imdbData.Poster,
-      },
+      image: { url: imdbData.Poster },
       caption: imdbInfo,
-    }, {
-      quoted: ms,
-    });
+    }, { quoted: ms });
   } catch (error) {
     repondre("An error occurred while searching IMDb.");
   }
@@ -127,12 +117,11 @@ zokou({
   }
 
   try {
-    
     const response = await axios.get(`http://www.omdbapi.com/?apikey=742b2d09&t=${arg}&plot=full`);
     const imdbData = response.data;
 
-    let imdbInfo = "THANKS ALL FOR THE SUPPORT ITS ME RAHMANI \n";
-    imdbInfo += " ``` RAHMANI-MD FILMS```\n";
+    let imdbInfo = "THANKS ALL FOR THE SUPPORT ITS ME ᴛɪᴍɴᴀsᴀ ᴛᴍᴅ \n";
+    imdbInfo += " ``` ᴛɪᴍɴᴀsᴀ ᴛᴍᴅ FILMS```\n";
     imdbInfo += "*Made by Ibrahim Adams*\n";
     imdbInfo += "🎬Title    : " + imdbData.Title + "\n";
     imdbInfo += "📅year      : " + imdbData.Year + "\n";
@@ -143,73 +132,4 @@ zokou({
     imdbInfo += "👨🏻‍💻Director : " + imdbData.Director + "\n";
     imdbInfo += "✍writers : " + imdbData.Writer + "\n";
     imdbInfo += "👨actors  : " + imdbData.Actors + "\n";
-    imdbInfo += "📃Synopsis  : " + imdbData.Plot + "\n";
-    imdbInfo += "🌐Language  : " + imdbData.Language + "\n";
-    imdbInfo += "🌍Contry      : " + imdbData.Country + "\n";
-    imdbInfo += "🎖️Awards : " + imdbData.Awards + "\n";
-    imdbInfo += "📦BoxOffice : " + imdbData.BoxOffice + "\n";
-    imdbInfo += "🏙️Production : " + imdbData.Production + "\n";
-    imdbInfo += "🌟score : " + imdbData.imdbRating + "\n";
-    imdbInfo += "❎imdbVotes : " + imdbData.imdbVotes + "";
-
-    zk.sendMessage(dest, {
-      image: {
-        url: imdbData.Poster,
-      },
-      caption: imdbInfo,
-    }, {
-      quoted: ms,
-    });
-  } catch (error) {
-    repondre("An error occurred while searching IMDb.");
-  }
-});
-
-zokou({
-  nomCom: "emomix",
-  categorie: "Conversion"
-}, async (dest, zk, commandeOptions) => {
-  const { arg, repondre,ms , nomAuteurMessage } = commandeOptions;
-
-  if (!arg[0] || arg.length !== 1) {
-    repondre("Incorrect use. Example: .emojimix 😀;🥰");
-    return;
-  }
-
-  // Divisez la chaîne en deux emojis en utilisant le point-virgule comme séparateur
-  const emojis = arg.join(' ').split(';');
-
-  if (emojis.length !== 2) {
-    repondre("Please specify two emojis using a ';' as a separator.");
-    return;
-  }
-
-  const emoji1 = emojis[0].trim();
-  const emoji2 = emojis[1].trim();
-
-  try {
-    const axios = require('axios');
-    const response = await axios.get(`https://levanter.onrender.com/emix?q=${emoji1}${emoji2}`);
-
-    if (response.data.status === true) {
-      // Si la requête a réussi, envoyez l'image résultante
-      
-      let stickerMess = new Sticker(response.data.result, {
-        pack: nomAuteurMessage,
-        type: StickerTypes.CROPPED,
-        categories: ["🤩", "🎉"],
-        id: "12345",
-        quality: 70,
-        background: "transparent",
-      });
-      const stickerBuffer2 = await stickerMess.toBuffer();
-      zk.sendMessage(dest, { sticker: stickerBuffer2 }, { quoted: ms });
-
-    } else {
-      repondre("Unable to create emoji mix.");
-    }
-  } catch (error) {
-    repondre("An error occurred while creating the emoji mix." + error );
-  }
-});
-
+    imdbInfo += "📃Synopsis  : " + imdbData
