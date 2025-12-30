@@ -3,7 +3,7 @@ const os = require("os");
 const { format } = require("util");
 
 zokou({
-    nomCom: "menu",
+    nomCom: "list",
     categorie: "General",
     reaction: "📜"
 },
