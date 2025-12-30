@@ -30,7 +30,7 @@ async function uploadToCatbox(Path) {
 async function convertToMp3(inputPath, outputPath) {
 }
 
-zokou({ nomCom: "url2", categorie: "General", reaction: "👨🏿‍💻" }, async (origineMessage, zk, commandeOptions) => {
+zokou({ nomCom: "url", categorie: "General", reaction: "👨🏿‍💻" }, async (origineMessage, zk, commandeOptions) => {
     const { msgRepondu, repondre } = commandeOptions;
 
     if (!msgRepondu) {
