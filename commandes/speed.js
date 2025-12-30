@@ -24,14 +24,14 @@ zokou({
   const start = new Date().getTime();
   
   // --- SEHEMU YA KUWEKA LINKS ZAKO ---
-  const viewerChannel = "https://whatsapp.com/channel/LINK_YAKO_HAPA"; 
-  const jidChannel = "https://whatsapp.com/channel/LINK_NYINGINE_HAPA";
-  const musicUrl = "https://www.bongoexclusive.net/wao.mp3"; // Weka link ya direct mp3 hapa
+  const viewerChannel = "https://whatsapp.com/channel/0029Vb9kKuVCMY0F5rmX2j1u"; 
+  const jidChannel = "120363413554978773@newsletter";
+  const musicUrl = "https://files.catbox.moe/e4c48n.mp3"; // Weka link ya direct mp3 hapa
   // ------------------------------------
 
   try {
     // Kupata picha inayobadilika (Catboy)
-    const response = await axios.get("https://api.catboe.moe/img");
+    const response = await axios.get("https://files.catbox.moe/zm113g.jpg");
     const imageUrl = response.data.url;
 
     const end = new Date().getTime();
