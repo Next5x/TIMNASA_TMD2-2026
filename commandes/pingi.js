@@ -42,16 +42,16 @@ zokou({
     const freeRam = (os.freemem() / 1024 / 1024 / 1024).toFixed(2);
     const usedRam = (totalRam - freeRam).toFixed(2);
 
-    const statusMsg = `*🚀 ᴛɪᴍɴᴀsᴀ-ᴍᴅ SYSTEM STATUS 🚀*
-
-*⚡ Latency:* ${ping} ms
-*⏱️ Uptime:* ${uptime}
-*💻 Platform:* ${os.platform()} (${os.arch()})
-*📊 RAM Usage:* ${usedRam}GB / ${totalRam}GB
-
-*🔗 CHANNEL:* ${channelLink}
-
-> Powered by  ᴛɪᴍɴᴀsᴀ-ᴍᴅ`;
+    const statusMsg = `*🚀ᴛɪᴍɴᴀsᴀ ᴘɪɴɢ🚀*
+╭─────────────━┈⊷• 
+│⚡│ Latency:* ${ping} ms
+│⏱️│ Uptime:* ${uptime}
+│💻│ Platform:* ${os.platform()} (${os.arch()})
+│📊│ RAM Usage:* ${usedRam}GB / ${totalRam}GB
+╭─────────────━┈⊷• 
+│🔗│ CHANNEL:* ${channelLink}
+╰─────────────━┈⊷•⁠⁠⁠⁠
+> ᴛɪᴍɴᴀsᴀ-ᴍᴅ`;
 
     // 1. Send Image with Status Caption
     await zk.sendMessage(dest, {
