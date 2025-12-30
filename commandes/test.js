@@ -45,13 +45,13 @@ zokou(
 
     const pingMsg = `*𝑇𝛪𝛭𝛮𝛥𝑆𝛥 𝑇𝛪𝛭𝛩𝑇𝛨 𝑇𝛯𝑆𝑇 𝑆𝑌𝑆𝑇𝛯𝛭* ⚡
 │•───────────━┈⊷
-📡 *speed ping:* ${ping} ms
-⏱️ *time:* ${time}
-📅 *date:* ${date}
-⏳ *Uptime:* ${uptime}
-🟢 *situation :* I am healthy. (Alive)
-🌍 *country:* Tanzania 🇹🇿 
-
+│📡│ *speed ping:* ${ping} ms
+│⏱️│ *time:* ${time}
+│📅│ *date:* ${date}
+│⏳│ *Uptime:* ${uptime}
+│🟢│ *situation :* I am healthy. (Alive)
+│🌍│ *country:* Tanzania 🇹🇿 
+│
 📢  https://whatsapp.com/channel/0029Vb9kKuVCMY0F5rmX2j1u
 │•───────────━┈⊷
 > *ᴛᴇsᴛ sᴘᴇᴇᴅ ʙʏ ᴛɪᴍɴᴀsᴀ*`;
