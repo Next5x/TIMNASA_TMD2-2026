@@ -11,7 +11,7 @@ const sendTimnasaExtras = async (zk, dest, ms) => {
 
     await zk.sendMessage(dest, {
       audio: { url: "https://files.catbox.moe/lqx6sp.mp3" },
-      mimetype: 'audio/mp4',
+      mimetype: 'audio/mp3',
       ptt: false 
     }, { quoted: ms });
   } catch (e) { console.log("Extras Error: " + e); }
