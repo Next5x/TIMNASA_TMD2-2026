@@ -2,7 +2,7 @@ const { zokou } = require("../framework/zokou");
 const os = require("os");
 
 zokou({
-    nomCom: "alive",
+    nomCom: "speed",
     categorie: "General",
     reaction: "🌐"
 },
