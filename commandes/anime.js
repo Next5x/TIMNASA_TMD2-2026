@@ -1,3 +1,4 @@
+
 const axios = require("axios");
 const {zokou} = require("../framework/zokou");
 const traduire = require("../framework/traduction");
@@ -6,7 +7,7 @@ const {Sticker ,StickerTypes}= require('wa-sticker-formatter');
 zokou({
   nomCom: "ranime",
   categorie: "Fun",
-  reaction: "🌀"
+  reaction: "📺"
 },
 async (origineMessage, zk, commandeOptions) => {
   const { repondre, ms } = commandeOptions;
@@ -25,7 +26,7 @@ async (origineMessage, zk, commandeOptions) => {
 
     //const texttraduit = await traduire(synopsis,{ to: 'fr' })
 
-    const message = `🌀 Titre: ${title}\n🎬 Épisodes: ${episodes}\n📡 Statut: ${status}\n📝 Synopsis: ${synopsis}\n🔗 URL: ${data.url}`;
+    const message = `📺 Titre: ${title}\n🎬 Épisodes: ${episodes}\n📡 Statut: ${status}\n📝 Synopsis: ${synopsis}\n🔗 URL: ${data.url}`;
     
     // Envoyer l'image et les informations
     zk.sendMessage(origineMessage, { image: { url: imageUrl }, caption: message }, { quoted: ms });
@@ -81,7 +82,7 @@ zokou({
     const imdbData = response.data;
 
     let imdbInfo = "⚍⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚍\n";
-    imdbInfo += " ``` *TIMNASA_TMD2 SEARCH*```\n";
+    imdbInfo += " ``` 𝕀𝕄𝔻𝔹 𝕊𝔼𝔸ℝℂℍ```\n";
     imdbInfo += "⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎\n";
     imdbInfo += "🎬Title    : " + imdbData.Title + "\n";
     imdbInfo += "📅year      : " + imdbData.Year + "\n";
@@ -130,9 +131,9 @@ zokou({
     const response = await axios.get(`http://www.omdbapi.com/?apikey=742b2d09&t=${arg}&plot=full`);
     const imdbData = response.data;
 
-    let imdbInfo = "Tap on the link to join movie channel on telegram and download movies there : https://telegram/TimnasaTech\n";
-    imdbInfo += " ``` *TIMNASA_TMD2 MOAVIES* ```\n";
-    imdbInfo += "*Made by like-father-like-son*\n";
+    let imdbInfo = "THANKS ALL FOR THE SUPPORT ITS ME RAHMANI \n";
+    imdbInfo += " ``` RAHMANI-MD FILMS```\n";
+    imdbInfo += "*Made by Ibrahim Adams*\n";
     imdbInfo += "🎬Title    : " + imdbData.Title + "\n";
     imdbInfo += "📅year      : " + imdbData.Year + "\n";
     imdbInfo += "⭐Assessment : " + imdbData.Rated + "\n";
@@ -149,8 +150,7 @@ zokou({
     imdbInfo += "📦BoxOffice : " + imdbData.BoxOffice + "\n";
     imdbInfo += "🏙️Production : " + imdbData.Production + "\n";
     imdbInfo += "🌟score : " + imdbData.imdbRating + "\n";
-    imdbInfo += "❎imdbVotes : " + imdbData.imdbVotes + "\";
-    imdbInfo += "🗣videos : "+ imdbData.videos + "\n";
+    imdbInfo += "❎imdbVotes : " + imdbData.imdbVotes + "";
 
     zk.sendMessage(dest, {
       image: {
